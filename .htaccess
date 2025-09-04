@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Route API calls to backend/routes.php
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^ api_router [QSA,PT]
+
+# Fallback to routes.php for API router
+RewriteRule ^api_router$ backend/routes.php [L]
+
